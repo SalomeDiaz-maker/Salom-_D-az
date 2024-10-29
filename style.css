@@ -1,0 +1,344 @@
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    position: relative;
+    background-image: url('imágenes/imagen2.jpg'); 
+    background-size: cover; 
+    background-position: center;
+    color: rgb(255, 254, 255);
+    padding: 20px 0;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header::before {
+    content: ''; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('imágenes/imagen2.jpg'); /* Mismo fondo */
+    background-size: cover; 
+    background-position: center;
+    filter: blur(5px); /* Aplica el difuminado aquí */
+    z-index: 1; 
+}
+
+header h1, 
+header p, 
+.profile-image, 
+.btn {
+    position: relative;
+    z-index: 2; /* Asegura que el texto y la imagen de perfil estén por encima del difuminado */
+}
+
+
+.hero {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.profile-image {
+    width: 150px;
+    border-radius: 50%;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.name {
+    font-size: 36px;
+    margin: 20px 0 10px 0;
+    opacity: 0;
+    animation: slideIn 0.8s ease forwards 0.5s;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.title {
+    font-size: 18px;
+    opacity: 0;
+    animation: slideIn 0.8s ease forwards 1s;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d99acb;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    opacity: 0;
+    animation: slideIn 0.8s ease forwards 1.5s;
+}
+
+.btn:hover {
+    background-color: #d99acb;
+}
+
+section {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: auto;
+    display: none;
+}
+
+.about, .projects, footer {
+    display: block;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.project-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.project {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    width: 300px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer a {
+    color: #FFD700;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+section {
+    display: none; 
+}
+
+#about:target, #projects:target, #contact:target {
+    display: block; 
+}
+
+.navbar {
+    background-color: #333; 
+    padding: 10px 0;
+    text-align: center;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.navbar li {
+    display: inline; 
+    margin: 0 15px; 
+}
+
+.navbar a {
+    color: white; 
+    text-decoration: none; 
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #d99acb; 
+}
+.project-container {
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap;
+    gap: 20px; 
+}
+
+.project {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s;
+    position: relative;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+}
+
+.details {
+    display: none; 
+    padding: 10px; 
+    text-align: left; 
+}
+
+.toggle:checked + .btn + img + h3 + p + .details {
+    display: block; 
+}
+.project img {
+    max-width: 100%; 
+    height: auto; 
+    border-bottom: 2px solid #d99acb;
+}
+.socials a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #333; /* Color de los iconos */
+    text-decoration: none;
+}
+
+.socials a:hover {
+    color: #d99acb; /* Color al pasar el mouse */
+}
+
+.socials i {
+    margin-right: 5px; /* Espacio entre el icono y el texto */
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer a {
+    color:  #d99acb;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.socials {
+    margin-top: 10px; 
+}
+
+.socials a {
+    display: inline-block;
+    margin: 0 10px; 
+    color: #ffffff; 
+}
+
+.socials a:hover {
+    color: #d99acb; 
+}
+
+.socials i {
+    margin-right: 5px; 
+}
+section {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: auto;
+    display: none; 
+}
+
+.about, .projects, #HabilidadesD, #HabilidadesB, footer {
+    display: block; 
+}
+
+
+#about:target, #projects:target, #HabilidadesD:target, #HabilidadesB:target, #contact:target {
+    display: block; 
+}
+
+.habilidades {
+    background-color: #ffffff; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    padding: 20px; 
+    margin: 20px auto;
+    max-width: 600px; 
+}
+
+.habilidades h2 {
+    text-align: center; 
+    color: #d99acb; 
+    margin-bottom: 15px; 
+}
+
+.skills-list {
+    list-style-type: none; 
+    padding: 0; 
+}
+
+.skills-list li {
+    background-color: #f9f9f9; 
+    border: 1px solid #d99acb; 
+    border-radius: 5px; 
+    padding: 10px;
+    margin: 10px 0; 
+    transition: background-color 0.3s; 
+    text-align: center; 
+}
+
+.skills-list li:hover {
+    background-color: #d99acb; 
+    color: white;
+}
+
+
+
